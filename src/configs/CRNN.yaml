@@ -1,0 +1,51 @@
+network: "CRNN"
+charset: "charset.txt"
+resize_hw:
+  height: 32
+  width: 100
+use_rgb: False
+label_maxlen: 24
+model_dir: "../saved_models/crnn"
+seed: 42
+
+train:
+  dataset_paths:
+      - "/mnt/cnsmlssd001/public/junyeop-lee/data/ICCV/train/MJS90/mjsynth_*_case-words-*.tfrecord"     # 9M   mjsynth train+valid+test
+      - "/mnt/cnsmlssd001/public/junyeop-lee/data/ICCV/train/MJS90/synth90_alpha_case-words-*.tfrecord" # 5.5M synthtext without special symbol
+      - "/mnt/cnsmlssd001/public/junyeop-lee/data/ICCV/train/MJS90/synth90_spe_case-words-*.tfrecord"   # 1.5M synthtext with special symbol
+  dataset_portions:
+    - 0.5
+    - 0.375
+    - 0.125
+  lowercase: False
+  alphanumeric: False
+  batch_size: 256
+  tune_from: ""
+  max_num_steps: 250001
+  verbose: False
+  save_steps: 5000
+  summary_steps: 1000
+  optimizer:
+    optimizer: 'Adam'
+    learning_rate: 0.0003
+    beta2: 0.999
+    use_clr: False
+    grad_clip_norm: 2.
+
+valid:
+  dataset_paths:
+      - "/mnt/cnsmlssd001/public/junyeop-lee/data/ICCV/test/**/gt.txt"
+  lowercase: True
+  alphanumeric: True
+  batch_size: 256
+  steps: 1000
+
+eval:
+  dataset_paths: 
+      - "/mnt/cnsmlssd001/public/junyeop-lee/data/ICCV/test/cute80/gt.txt"
+      - "/mnt/cnsmlssd001/public/junyeop-lee/data/ICCV/test/icdar13/gt.txt"
+  lowercase: True
+  alphanumeric: True
+  model_path: "./default/best_models/total_valid"
+  batch_size: 256
+  verbose: False

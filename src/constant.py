@@ -1,0 +1,12 @@
+"""
+Copyright (c) 2020-present NAVER Corp.
+MIT license
+"""
+
+EOS_INDEX = 0
+UNK_INDEX = 1
+DELIMITER = '[!%&]'
+EOS_TOKEN = '<EOS>'
+UNK_TOKEN = '<UNK>'
+SPE_INDEXES = [EOS_INDEX, UNK_INDEX]
+SPE_TOKENS = [EOS_TOKEN, UNK_TOKEN]

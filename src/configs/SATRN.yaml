@@ -1,0 +1,73 @@
+network: "SATRN"
+charset: "./resources/charset.txt"
+resize_hw:
+  height: 32
+  width: 100
+use_rgb: False
+label_maxlen: 25
+seed: 42
+model_dir: "../saved_models/satrn"
+
+hidden_size: 512
+filter_size: 2048
+enc_layers: 12
+dec_layers: 6
+num_heads: 8
+dropout_rate: 0.9 
+rot_stddev: 0.6
+
+train:
+  dataset_paths:
+      - "../data/train/MJS90/mjsynth_*_case-words-*.tfrecord"     # 9M   mjsynth train+valid+test
+      - "../data/train/MJS90/synth90_alpha_case-words-*.tfrecord" # 5.5M synthtext without special symbol
+      - "../data/train/MJS90/synth90_spe_case-words-*.tfrecord"   # 1.5M synthtext with special symbol
+  dataset_portions:
+    - 0.5
+    - 0.375
+    - 0.125
+  lowercase: False
+  alphanumeric: False
+  batch_size: 256
+  num_threads: 8
+  tune_from: ""
+  max_num_steps: 250001
+  verbose: False
+  save_steps: 5000
+  summary_steps: 1000
+  optimizer:
+    optimizer: 'Adam'
+    learning_rate: 0.0003
+    beta2: 0.999
+    use_clr: True
+    clr_step: 250000
+    grad_clip_norm: 2.
+
+valid:
+  dataset_paths:
+      - "../data/test/cute80/gt.txt"
+      - "../data/test/icdar03/gt.txt"
+      - "../data/test/icdar13/gt.txt"
+      - "../data/test/icdar15/gt.txt"
+      - "../data/test/iiit5k/gt.txt"
+      - "../data/test/svt/gt.txt"
+      - "../data/test/svtp/gt.txt"
+  lowercase: True
+  alphanumeric: True
+  batch_size: 256
+  steps: 1000
+
+eval:
+  dataset_paths: 
+      - "../data/test/cute80/gt.txt"
+      - "../data/test/icdar03/gt.txt"
+      - "../data/test/icdar13/gt.txt"
+      - "../data/test/icdar15/gt.txt"
+      - "../data/test/iiit5k/gt.txt"
+      - "../data/test/svt/gt.txt"
+      - "../data/test/svtp/gt.txt"
+  lowercase: True
+  alphanumeric: True
+  model_path: "../saved_models/satrn/model"
+  batch_size: 256
+  verbose: False
+

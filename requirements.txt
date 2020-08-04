@@ -1,0 +1,6 @@
+tensorflow-gpu==1.12.0
+opencv-python==3.4.2.17
+pyyaml
+fire
+psutil
+yapf
