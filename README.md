@@ -12,7 +12,7 @@
   <b>Figure. 2D attention map</b>
 </p>
 
-Official Tensorflow implementation of SATRN text recognizer | [Paper](https://openaccess.thecvf.com/content_CVPRW_2020/papers/w34/Lee_On_Recognizing_Texts_of_Arbitrary_Shapes_With_2D_Self-Attention_CVPRW_2020_paper.pdf) | [Pretrained Model](https://drive.google.com/file/d/1vRAVNiOQeKJZxmRgXWTS5e3hsAmPy5aG/view?usp=sharing) | Dataset | [PPT](https://drive.google.com/file/d/1bguKFWbtdm9hVZzjYsTcL_-JPBUXVBYL/view?usp=sharing)
+Official Tensorflow implementation of SATRN text recognizer | [Paper](https://openaccess.thecvf.com/content_CVPRW_2020/papers/w34/Lee_On_Recognizing_Texts_of_Arbitrary_Shapes_With_2D_Self-Attention_CVPRW_2020_paper.pdf) | [Pretrained Model](https://drive.google.com/file/d/1vRAVNiOQeKJZxmRgXWTS5e3hsAmPy5aG/view?usp=sharing) | [Dataset](https://drive.google.com/file/d/1OFRAvoU8j8GB7Q13PxHD49A0hFuf2hE0/view?usp=sharing) | [PPT](https://drive.google.com/file/d/1bguKFWbtdm9hVZzjYsTcL_-JPBUXVBYL/view?usp=sharing)
 
 **[Junyeop Lee](https://github.com/JunYeopLee), [Sungrae Park](https://github.com/sungraepark), Jeonghun Baek, Seong Joon Oh, Seonghyeon Kim and Hwalsuk Lee**
 
